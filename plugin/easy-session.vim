@@ -23,6 +23,11 @@ if !exists("g:vim_sessions_dir")
   endif
 endif
 
+" Set the Explore option
+if !exists("g:vim_sessions_explore")
+  let g:vim_sessions_explore = 1
+endif
+
 function! SaveSession()
   " Set current working directory as root
   silent exec 'cd %:p:h'
@@ -34,16 +39,18 @@ function! SaveSession()
   echo 'The session was saved as '.filename.'.vim'
 endfunction
 
-function! SessionsDir()
+function! Sessions()
   " Set the 'sessions' directory as root
   silent exec 'cd '.g:vim_sessions_dir
-  " Open the 'sessions' directory in Netrw
-  silent exec 'Explore '.g:vim_sessions_dir
+  " Open the 'sessions' directory in Netrw if the option is on
+  if g:vim_sessions_explore == '1'
+    silent exec 'Explore '.g:vim_sessions_dir
+  endif
   " Display instructions
-  echo 'To open a session, type :source <session.vim>'
+  echo 'To open a session, type ":source <session.vim>"'
 endfunction
 
 " Map :call SaveSession() to :SaveSession
 command! -nargs=0 SaveSession call SaveSession()
-" Map :call SessionsDir() to :SessionsDir
-command! -nargs=0 SessionsDir call SessionsDir()
+" Map :call Sessions() to :Sessions
+command! -nargs=0 Sessions call Sessions()

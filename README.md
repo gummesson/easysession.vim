@@ -22,14 +22,14 @@ The `vim_sessions_dir` variable defaults to `$HOME/.vim/sessions` on Unix and `$
 
 **Open a session:**
 
-    :SessionsDir
+    :Sessions
     :source <session.vim>
 
-I'm hoping to add a better way to open sessions once I learn my way around vimscript.
+The `Sessions` function will execute the `Explore` command in the same directory as the sessions. Add `let g:vim_sessions_explore = 0` to your `vimrc` to turn it off.
 
 ## Tips and Tricks
 
-if you're planning to use sessions on both Unix and Windows systems it's recommended that you add the following to your `vimrc` file:
+if you're planning on using sessions on both Unix and Windows systems the offical Vim documentation recommends that you add the following to your `vimrc` file:
 
     set sessionoptions+=unix,slash
 
