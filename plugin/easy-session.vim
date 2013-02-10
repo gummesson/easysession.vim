@@ -37,8 +37,10 @@ endfunction
 function! SessionsDir()
   " Set the 'sessions' directory as root
   silent exec 'cd '.g:vim_sessions_dir
+  " Open the 'sessions' directory in Netrw
+  silent exec 'Explore '.g:vim_sessions_dir
   " Display instructions
-  echo 'To open a session, type ":source <session.vim>"'
+  echo 'To open a session, type :source <session.vim>'
 endfunction
 
 " Map :call SaveSession() to :SaveSession
