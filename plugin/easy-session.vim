@@ -25,8 +25,8 @@ endif
 
 function! SaveSession()
   " Check if the session already exists
-  if exists("s:vim_session_filename")
-    let filename = s:vim_session_filename
+  if exists("v:this_session")
+    let filename = fnamemodify(v:this_session, ":t")
   else
     " Set current working directory as root
     silent exec 'cd %:p:h'
@@ -41,16 +41,12 @@ function! SaveSession()
 endfunction
 
 function! OpenSession(filename)
-  " Set the session name for saving
-  let s:vim_session_filename = a:filename
   " Source a session file in the 'sessions' directory
   silent exec 'source '.g:vim_session_dir.'/'.a:filename
 endfunction
 
 
 function! NewSession(filename)
-  " Set the session name for saving
-  let s:vim_session_filename = a:filename
   " Save a new session in the 'sessions' directory
   silent exec 'mksession '.g:vim_session_dir.'/'.a:filename
   echo 'The session was saved as '.a:filename
