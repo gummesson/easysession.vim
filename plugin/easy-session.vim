@@ -45,7 +45,6 @@ function! OpenSession(filename)
   silent exec 'source '.g:vim_session_dir.'/'.a:filename
 endfunction
 
-
 function! NewSession(filename)
   " Save a new session in the 'sessions' directory
   silent exec 'mksession '.g:vim_session_dir.'/'.a:filename
