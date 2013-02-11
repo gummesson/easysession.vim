@@ -1,0 +1,85 @@
+==============================================================================
+
+INTRODUCTION						*easy-session-intro*
+
+  *easy-session.vim* is a for easily managing sessions in Vim.
+
+==============================================================================
+
+TABLE OF CONTENTS					*easy-session-toc*
+
+  |easy-session-intro|......................................Introduction
+  |easy-session-toc|........................................Table of Contents
+  |easy-session-install|....................................Installation
+  |easy-session-usage|......................................Usage
+  	|easy-session-save|.................................Save session
+	|easy-session-new|..................................New session
+	|easy-session-open|.................................Open session
+	|easy-session-expl|.................................Explore sessions
+  |easy-session-config|.....................................Configuration
+  |easy-session-limit|......................................Limitations
+
+==============================================================================
+
+INSTALLATION						*easy-session-install*
+
+  Pathogen:
+>
+  cd ~/.vim/bundle
+  git clone https://github.com/gummesson/easy-session.vim.git
+<
+  If you're not using Pathogen place the corresponding files in their
+  respective folders in the home 'vim' directory or follow the instructions
+  from the plugin manager you're using.
+
+==============================================================================
+
+USAGE							*easy-session-usage*
+
+  Save a session:					*easy-session-save*
+>
+  :SaveSession 
+<
+This will save the session by using the current working directory for it as a
+filename. If you want to give your session a different filename, see 
+|easy-session-new|.
+
+  Create a new session:					*easy-session-new*
+>
+ :NewSession <session>.vim 
+<
+
+  Open a session:					*easy-session-open*
+>
+  :OpenSession <session>.vim
+<
+
+  Explore sessions:					*easy-session-expl*
+>
+  :Sessions
+<
+The |easy-session-expl| function will execute the 'explore' command in the
+same directory as the sessions. Use 'source' to open a session from the
+explorer.
+
+==============================================================================
+
+CONFIGURATION						*easy-session-config*
+
+  You can change the sessions directory by adding the following in your
+  'vimrc' file:
+>
+  let g:vim_session_dir = path/to/directory
+<
+==============================================================================
+
+LIMITATIONS						*easy-sessions-limit*
+
+  Since the save function uses the current working directory as it's filename
+  you have to make sure that you're located in your project's root directory
+  when you execute it. The easiest way  to do that is to open a file in your
+  current window that's located in it.
+
+==============================================================================
+
+vim:tw=78:ts=8:ft=help:norl:
