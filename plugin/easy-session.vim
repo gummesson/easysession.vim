@@ -25,7 +25,7 @@ endif
 
 function! SaveSession()
   " Check if the session already exists
-  if exists("v:this_session")
+  if strlen(v:this_session)
     let filename = fnamemodify(v:this_session, ":t")
   else
     " Set current working directory as root
