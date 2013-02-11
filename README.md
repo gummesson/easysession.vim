@@ -6,9 +6,10 @@
 
 **Pathogen:**
 
-    git clone https://github.com/gummesson/easy-session.vim.git bundle/easy-session.vim
+    cd ~/.vim/bundle
+    git clone https://github.com/gummesson/easy-session.vim.git
 
-If you're not using [Pathogen](https://github.com/tpope/vim-pathogen "Pathogen"), place the `easy-session.vim` file in your `plugin` folder or follow the instructions from the plugin manager you're using.
+If you're not using [Pathogen](https://github.com/tpope/vim-pathogen "Pathogen"), place the corresponding files in their respective folders in the `~/.vim/` directory or follow the instructions from the plugin manager you're using.
 
 Once the plugin is installed, created a folder called `sessions` in your `.vim`/`vimfiles` home directory. Alternatively, you can use another directory by adding `let g:vim_session_dir = path/to/directory` in your `vimrc` file.
 

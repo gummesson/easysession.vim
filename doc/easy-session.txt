@@ -32,6 +32,13 @@ INSTALLATION						*easy-session-install*
   respective folders in the home 'vim' directory or follow the instructions
   from the plugin manager you're using.
 
+  Once the installation is done you need to create the 'sessions' directory:
+>
+  mkdir ~/.vim/sessions
+<
+  If you want to use a directory that's not place in the home 'vim' directory,
+  see |easy-session-config|.
+
 ==============================================================================
 
 USAGE							*easy-session-usage*
