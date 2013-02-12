@@ -1,12 +1,12 @@
 ==============================================================================
 
-INTRODUCTION						*easy-session-intro*
+  INTRODUCTION						*easy-session-intro*
 
   *easy-session.vim* is a for easily managing sessions in Vim.
 
 ==============================================================================
 
-TABLE OF CONTENTS					*easy-session-toc*
+  TABLE OF CONTENTS					*easy-session-toc*
 
   |easy-session-intro|......................................Introduction
   |easy-session-toc|........................................Table of Contents
@@ -15,77 +15,80 @@ TABLE OF CONTENTS					*easy-session-toc*
   	|easy-session-save|.................................Save session
 	|easy-session-new|..................................New session
 	|easy-session-open|.................................Open session
-	|easy-session-expl|.................................Explore sessions
+	|easy-session-list|.................................List sessions
   |easy-session-config|.....................................Configuration
   |easy-session-limit|......................................Limitations
 
 ==============================================================================
 
-INSTALLATION						*easy-session-install*
+  INSTALLATION						*easy-session-install*
 
   Pathogen:
->
+  >
   cd ~/.vim/bundle
   git clone https://github.com/gummesson/easy-session.vim.git
 <
   If you're not using Pathogen place the corresponding files in their
-  respective folders in the home 'vim' directory or follow the instructions
+  respective folders in the home Vim directory or follow the instructions
   from the plugin manager you're using.
 
-  Once the installation is done you need to create the 'sessions' directory:
->
+  Once the installation is done you need to create the sessions directory:
+  >
   mkdir ~/.vim/sessions
 <
-  If you want to use a directory that's not place in the home 'vim' directory,
+  If you want to use a directory that's not place in the home Vim directory,
   see |easy-session-config|.
 
 ==============================================================================
 
-USAGE							*easy-session-usage*
+  USAGE							*easy-session-usage*
 
   Save a session:					*easy-session-save*
 >
   :SaveSession 
 <
-This will save the session by using the current working directory for it as a
-filename. If you want to give your session a different filename, see 
-|easy-session-new|.
+  This will save the session by using the current working directory for it as
+  a filename. If you want to give your session a different filename, see 
+  |easy-session-new|.
 
   Create a new session:					*easy-session-new*
 >
  :NewSession <session>.vim 
 <
-
   Open a session:					*easy-session-open*
 >
   :OpenSession <session>.vim
 <
-
-  Explore sessions:					*easy-session-expl*
+  List all sessions:					*easy-session-list*
 >
-  :Sessions
+  :ListSessions
 <
-The |easy-session-expl| function will execute the 'explore' command in the
-same directory as the sessions. Use 'source' to open a session from the
-explorer.
-
 ==============================================================================
 
-CONFIGURATION						*easy-session-config*
+  CONFIGURATION						*easy-session-config*
 
   You can change the sessions directory by adding the following in your
-  'vimrc' file:
+  vimrc file:
 >
   let g:vim_session_dir = path/to/directory
 <
+  You can also change the size of the sessions list window by using this
+  global variables:
+>
+  let g:vim_session_win_min = 1
+  let g:vim_session_win_max = 5
+<
 ==============================================================================
 
-LIMITATIONS						*easy-sessions-limit*
+  LIMITATIONS						*easy-sessions-limit*
 
-  Since the save function uses the current working directory as it's filename
-  you have to make sure that you're located in your project's root directory
-  when you execute it. The easiest way  to do that is to open a file in your
-  current window that's located in it.
+  Since the SaveSession function uses the current working directory as it's
+  filename you have to make sure that you're located in your project's root
+  directory when you execute it. The easiest way  to do that is to open a file
+  in your current window that's located in it.
+
+  The ListSessions function also use the the *nix command 'ls' so if you're
+  on Windows you have to have either Cygwin or MSYS installed for it to work.
 
 ==============================================================================
 

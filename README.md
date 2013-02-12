@@ -11,9 +11,7 @@
 
 If you're not using [Pathogen](https://github.com/tpope/vim-pathogen "Pathogen"), place the corresponding files in their respective folders in the `~/.vim/` directory or follow the instructions from the plugin manager you're using.
 
-Once the plugin is installed, created a folder called `sessions` in your `.vim`/`vimfiles` home directory. Alternatively, you can use another directory by adding `let g:vim_session_dir = path/to/directory` in your `vimrc` file.
-
-The `vim_session_dir` variable defaults to `$HOME/.vim/sessions` on Unix and `$HOME/vimfiles/sessions` on Windows.
+Once the plugin is installed, created a folder called `sessions` in your `.vim`/`vimfiles` home directory.
 
 ## Usage
 
@@ -35,11 +33,24 @@ This will save the session by using the current working directory for it as a fi
 
 *Example:* `:OpenSession myproject.vim`
 
-**See all sessions:**
+**List all sessions:**
 
-    :Sessions
+    :ListSessions
 
-The `Sessions` function will execute the `Explore` command in the same directory as the sessions. Use `:source <session>.vim` to open a session from the explorer.
+You can then use `:source` to open a session.
+
+The `:ListSessions` function also use the the *nix command `ls` so if you're on Windows you have to have either [Cygwin](http://www.cygwin.com/ "Cygwin") or [MSYS](http://www.mingw.org/wiki/MSYS "MSYS") installed for it to work.
+
+## Configuration
+
+The `vim_session_dir` variable defaults to `$HOME/.vim/sessions` on Unix and `$HOME/vimfiles/sessions` on Windows. You can change this by adding the following to your `vimrc` file:
+
+    let g:vim_session_dir = path/to/directory
+
+You can also change the size of the `:ListSessions` window by using this global variables:
+
+    let g:vim_session_win_min = 1
+    let g:vim_session_win_max = 5
 
 ## Limitations
 
