@@ -16,7 +16,7 @@ function! session#Save()
     let current_dir = fnamemodify(getcwd(), ":t")
     let filename = current_dir.'.vim'
   endif
-  " Execute the mksession! command (so that the session can be overwritten)
+  " Execute 'mksession!' (so that the session can be overwritten)
   silent exec 'mksession! '.g:vim_session_dir.'/'.filename
   " Display a message that the session has been saved
   echo 'The session was saved as '.filename
@@ -37,7 +37,7 @@ endfunction
 
 " ~ List
 function! session#List()
-  " Open and resizes the 'Sessions' window
+  " Open and resizes the 'sessions' window
   call s:vim_session_window()
   " Make the 'sessions' the current directory
   silent exec 'lcd '.g:vim_session_dir
@@ -60,7 +60,7 @@ function! s:vim_session_window()
 endfunction
 
 function! s:vim_session_buffer()
-  " Enable the 'Sessions' buffer to be easily removed
+  " Enable the 'sessions' buffer to be easily removed and go largely unnoticed
   setlocal noswapfile
   setlocal buftype=nofile
   setlocal bufhidden=delete
@@ -71,10 +71,10 @@ function! s:vim_session_list()
   " Get all the files in the 'sessions' directory
   if has("unix")
     " Unix
-    silent exec '0r !ls'
+    silent exec '0read !ls'
   else
     " Windows
-    silent exec '0r !dir /B'
+    silent exec '0read !dir /B'
   endif
   " Remove trailing whitespace in the 'sessions' list
   silent exec 'g/^$/d'
@@ -84,7 +84,7 @@ function s:vim_session_misc()
   " Add some color to the session filenames
   syntax match Keyword /\v^.*(\.vim)$/
   " Check if colorcolumn is set
-  if exists("&colorcolumn")
+  if exists("colorcolumn")
     setlocal colorcolumn=0
   endif
   " Remove the cursorline
