@@ -1,7 +1,7 @@
 " easy-session.vim
 "
 "   Author: Ellen Gummesson <http://ellengummesson.com/>
-"  Version: 0.7
+"  Version: 0.5
 "  License: Vim
 
 " Don't reload the plugin if it already exists or if compatible mode is enabled
@@ -37,7 +37,7 @@ endif
 command! -nargs=0 SaveSession call session#Save()
 " Map :OpenSession
 command! -nargs=1 OpenSession call session#Open(<f-args>)
-" Map :NewSession
+" Map :OpenSession
 command! -nargs=1 NewSession call session#New(<f-args>)
 " Map :ListSessions
 command! -nargs=0 ListSessions call session#List()

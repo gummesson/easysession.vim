@@ -1,7 +1,7 @@
 " easy-session.vim
 "
 "   Author: Ellen Gummesson <http://ellengummesson.com/>
-"  Version: 0.7
+"  Version: 0.5
 "  License: Vim
 
 " ~ Save
@@ -69,14 +69,20 @@ endfunction
 
 function! s:vim_session_list()
   " Get all the files in the 'sessions' directory
-  silent exec '0r !ls'
-  " Remove trailing whitespace in the list
+  if has("unix")
+    " Unix
+    silent exec '0r !ls'
+  else
+    " Windows
+    silent exec '0r !dir /B'
+  endif
+  " Remove trailing whitespace in the 'sessions' list
   silent exec 'g/^$/d'
-  " Add some color
-  syntax match Keyword /^[a-zA-Z0-9].*/
 endfunction
 
 function s:vim_session_misc()
+  " Add some color to the session filenames
+  syntax match Keyword /^[a-zA-Z0-9].*/
   " Check if colorcolumn is set
   if exists("&colorcolumn")
     setlocal colorcolumn=0

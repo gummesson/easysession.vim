@@ -52,15 +52,7 @@ You can also change the size of the `:ListSessions` window by using this global 
 
 ## Limitations
 
-Since the `:SaveSession` function uses the current working directory as it's filename you have to make sure that you're located in your project's root directory when you execute it. The easiest way to do that is to open a file in your current window that's located in it.
-
-The `:ListSessions` function also use the the *nix command `ls` so if you're on Windows you have to have either [Cygwin](http://www.cygwin.com/ "Cygwin") or [MSYS](http://www.mingw.org/wiki/MSYS "MSYS") installed for it to work.
-
-## Tips and Tricks
-
-if you're planning on using sessions on both Unix and Windows systems the offical Vim documentation recommends that you add the following to your `vimrc` file:
-
-    set sessionoptions+=unix,slash
+Since the `:SaveSession` function uses the current working directory as it's filename you have to make sure that you're in the project's root directory when you execute it if you haven't already saved the session. The easiest way to do that is to open a file in your current window that's located in the root directory or use `:NewSession` instead.
 
 ## License
 [Vim License](http://vimdoc.sourceforge.net/htmldoc/uganda.html#license "Vim License")
