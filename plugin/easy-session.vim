@@ -37,7 +37,7 @@ endif
 command! -nargs=0 SaveSession call session#Save()
 " Map :OpenSession
 command! -nargs=1 OpenSession call session#Open(<f-args>)
-" Map :OpenSession
+" Map :NewSession
 command! -nargs=1 NewSession call session#New(<f-args>)
 " Map :ListSessions
 command! -nargs=0 ListSessions call session#List()

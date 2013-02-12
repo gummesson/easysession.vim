@@ -39,8 +39,6 @@ This will save the session by using the current working directory for it as a fi
 
 You can then use `:source` to open a session.
 
-The `:ListSessions` function also use the the *nix command `ls` so if you're on Windows you have to have either [Cygwin](http://www.cygwin.com/ "Cygwin") or [MSYS](http://www.mingw.org/wiki/MSYS "MSYS") installed for it to work.
-
 ## Configuration
 
 The `vim_session_dir` variable defaults to `$HOME/.vim/sessions` on Unix and `$HOME/vimfiles/sessions` on Windows. You can change this by adding the following to your `vimrc` file:
@@ -55,6 +53,8 @@ You can also change the size of the `:ListSessions` window by using this global 
 ## Limitations
 
 Since the `:SaveSession` function uses the current working directory as it's filename you have to make sure that you're located in your project's root directory when you execute it. The easiest way to do that is to open a file in your current window that's located in it.
+
+The `:ListSessions` function also use the the *nix command `ls` so if you're on Windows you have to have either [Cygwin](http://www.cygwin.com/ "Cygwin") or [MSYS](http://www.mingw.org/wiki/MSYS "MSYS") installed for it to work.
 
 ## Tips and Tricks
 
