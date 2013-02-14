@@ -53,8 +53,7 @@ endfunction
 
 function! s:vim_session_window()
   " Open a new window and resize it to the maximum window size
-  silent exec 'wincmd n'
-  silent exec 'resize '.g:vim_session_win_max
+  silent exec 'wincmd n | resize '.g:vim_session_win_max
   " Set minimum window size
   silent exec 'setlocal winminheight='.g:vim_session_win_min
 endfunction
@@ -62,9 +61,8 @@ endfunction
 function! s:vim_session_buffer()
   " Enable the 'sessions' buffer to be easily removed and go largely unnoticed
   setlocal noswapfile
-  setlocal buftype=nofile
-  setlocal bufhidden=delete
-  setlocal nobuflisted
+  setlocal buftype=nofile bufhidden=delete nobuflisted
+  setlocal readonly
 endfunction
 
 function! s:vim_session_list()
