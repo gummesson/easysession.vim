@@ -84,7 +84,7 @@ function s:vim_session_misc()
   " Add some color to the session filenames
   syntax match Keyword /\v^.*(\.vim)$/
   " Check if colorcolumn is set
-  if exists("colorcolumn")
+  if exists("&colorcolumn")
     setlocal colorcolumn=0
   endif
   " Remove the cursorline
