@@ -18,7 +18,6 @@ function! session#Save()
   endif
   " Execute 'mksession!' (so that the session can be overwritten)
   silent exec 'mksession! '.g:vim_session_dir.'/'.filename
-  " Display a message that the session has been saved
   echo 'The session was saved as '.filename
 endfunction
 
