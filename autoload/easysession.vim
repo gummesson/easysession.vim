@@ -6,84 +6,62 @@
 
 " ~ Save
 function! easysession#Save()
-  " Check if the session already exists
   if strlen(v:this_session)
     let filename = fnamemodify(v:this_session, ":t")
   else
-    " Set current working directory as root
     silent exec 'cd %:p:h'
-    " Set the current working directory's name as filename
     let current_dir = fnamemodify(getcwd(), ":t")
     let filename = current_dir.'.vim'
   endif
-  " Execute 'mksession!' (so that the session can be overwritten)
   silent exec 'mksession! '.g:vim_sessions_dir.'/'.filename
   echo 'The session was saved as '.filename
 endfunction
 
 " ~ Open
 function! easysession#Open(filename)
-  " Source a session file in the 'sessions' directory
   silent exec 'source '.g:vim_sessions_dir.'/'.a:filename
 endfunction
 
 " ~ New
 function! easysession#New(filename)
-  " Save a new session in the 'sessions' directory
   silent exec 'mksession '.g:vim_sessions_dir.'/'.a:filename
   echo 'The session was saved as '.a:filename
 endfunction
 
 " ~ List
 function! easysession#List()
-  " Open and resizes the 'sessions' window
   call s:vim_sessions_window()
-  " Make the 'sessions' the current directory
-  silent exec 'lcd '.g:vim_sessions_dir
-  " Set the 'Sessions' buffer settings
+    silent exec 'lcd '.g:vim_sessions_dir
   call s:vim_sessions_buffer()
-  " Get a list of all the sessions
   call s:vim_sessions_list()
-  " Name the temporary buffer file '[EASY SESSION]'
-  silent exec 'file [EASY SESSION]'
-  " Set various local settings
+    silent exec 'file [EASY SESSION]'
   call s:vim_sessions_misc()
+    nnoremap <buffer> <silent> <Esc> :q<cr>
 endfunction
 
 function! s:vim_sessions_window()
-  " Open a new window and resize it to the maximum window size
   silent exec 'wincmd n | resize '.g:vim_sessions_win_max
-  " Set minimum window size
   silent exec 'setlocal winminheight='.g:vim_sessions_win_min
 endfunction
 
 function! s:vim_sessions_buffer()
-  " Enable the 'sessions' buffer to be easily removed and go largely unnoticed
   setlocal noswapfile
   setlocal buftype=nofile bufhidden=delete nobuflisted
-  setlocal readonly
 endfunction
 
 function! s:vim_sessions_list()
-  " Get all the files in the 'sessions' directory
   if has("unix")
-    " Unix
     silent exec '0read !ls'
   else
-    " Windows
     silent exec '0read !dir /B'
   endif
-  " Remove trailing whitespace in the 'sessions' list
   silent exec 'g/^$/d'
 endfunction
 
 function s:vim_sessions_misc()
-  " Add some color to the session filenames
   syntax match Keyword /\v^.*(\.vim)$/
-  " Check if colorcolumn is set
   if exists("&colorcolumn")
     setlocal colorcolumn=0
   endif
-  " Remove the cursorline
   setlocal nocursorline
 endfunction

@@ -4,21 +4,17 @@
 "  Version: 0.5
 "  License: Vim
 
-" Don't reload the plugin if it already exists or if compatible mode is enabled
 if exists("g:loaded_easy_session") || &cp
   finish
 endif
 
-" If it gets loaded, make sure that it doesn't get reloaded again
 let g:loaded_easy_session = 1
 
-" Set the 'sessions' directory
+" Set the 'Sessions' directory
 if !exists("g:vim_sessions_dir")
   if has("unix")
-    " Default to ~/.vim/sessions
     let g:vim_sessions_dir = "$HOME/.vim/sessions"
   else
-    " Default to C:/Users/<USERNAME>/vimfiles/sessions
     let g:vim_sessions_dir = "$HOME/vimfiles/sessions"
   endif
 endif
@@ -33,11 +29,8 @@ if !exists("g:vim_sessions_win_max")
   let g:vim_sessions_win_max = 5
 endif
 
-" Map :SaveSession
+" Command-line mappings
 command! -nargs=0 SaveSession call easysession#Save()
-" Map :OpenSession
 command! -nargs=1 OpenSession call easysession#Open(<f-args>)
-" Map :OpenSession
 command! -nargs=1 NewSession call easysession#New(<f-args>)
-" Map :ListSessions
 command! -nargs=0 ListSessions call easysession#List()
