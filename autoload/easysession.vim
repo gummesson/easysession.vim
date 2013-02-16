@@ -1,11 +1,11 @@
-" easy-session.vim
+" easysession.vim
 "
 "   Author: Ellen Gummesson <http://ellengummesson.com/>
 "  Version: 0.5
 "  License: Vim
 
 " ~ Save
-function! session#Save()
+function! easysession#Save()
   " Check if the session already exists
   if strlen(v:this_session)
     let filename = fnamemodify(v:this_session, ":t")
@@ -17,54 +17,54 @@ function! session#Save()
     let filename = current_dir.'.vim'
   endif
   " Execute 'mksession!' (so that the session can be overwritten)
-  silent exec 'mksession! '.g:vim_session_dir.'/'.filename
+  silent exec 'mksession! '.g:vim_sessions_dir.'/'.filename
   echo 'The session was saved as '.filename
 endfunction
 
 " ~ Open
-function! session#Open(filename)
+function! easysession#Open(filename)
   " Source a session file in the 'sessions' directory
-  silent exec 'source '.g:vim_session_dir.'/'.a:filename
+  silent exec 'source '.g:vim_sessions_dir.'/'.a:filename
 endfunction
 
 " ~ New
-function! session#New(filename)
+function! easysession#New(filename)
   " Save a new session in the 'sessions' directory
-  silent exec 'mksession '.g:vim_session_dir.'/'.a:filename
+  silent exec 'mksession '.g:vim_sessions_dir.'/'.a:filename
   echo 'The session was saved as '.a:filename
 endfunction
 
 " ~ List
-function! session#List()
+function! easysession#List()
   " Open and resizes the 'sessions' window
-  call s:vim_session_window()
+  call s:vim_sessions_window()
   " Make the 'sessions' the current directory
-  silent exec 'lcd '.g:vim_session_dir
+  silent exec 'lcd '.g:vim_sessions_dir
   " Set the 'Sessions' buffer settings
-  call s:vim_session_buffer()
+  call s:vim_sessions_buffer()
   " Get a list of all the sessions
-  call s:vim_session_list()
+  call s:vim_sessions_list()
   " Name the temporary buffer file '[EASY SESSION]'
   silent exec 'file [EASY SESSION]'
   " Set various local settings
-  call s:vim_session_misc()
+  call s:vim_sessions_misc()
 endfunction
 
-function! s:vim_session_window()
+function! s:vim_sessions_window()
   " Open a new window and resize it to the maximum window size
-  silent exec 'wincmd n | resize '.g:vim_session_win_max
+  silent exec 'wincmd n | resize '.g:vim_sessions_win_max
   " Set minimum window size
-  silent exec 'setlocal winminheight='.g:vim_session_win_min
+  silent exec 'setlocal winminheight='.g:vim_sessions_win_min
 endfunction
 
-function! s:vim_session_buffer()
+function! s:vim_sessions_buffer()
   " Enable the 'sessions' buffer to be easily removed and go largely unnoticed
   setlocal noswapfile
   setlocal buftype=nofile bufhidden=delete nobuflisted
   setlocal readonly
 endfunction
 
-function! s:vim_session_list()
+function! s:vim_sessions_list()
   " Get all the files in the 'sessions' directory
   if has("unix")
     " Unix
@@ -77,7 +77,7 @@ function! s:vim_session_list()
   silent exec 'g/^$/d'
 endfunction
 
-function s:vim_session_misc()
+function s:vim_sessions_misc()
   " Add some color to the session filenames
   syntax match Keyword /\v^.*(\.vim)$/
   " Check if colorcolumn is set

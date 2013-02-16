@@ -1,6 +1,6 @@
-# easy-session.vim
+# easysession.vim
 
-*easy-session.vim* is a plugin for easily managing sessions in [Vim](http://www.vim.org/ "Vim").
+*easysession.vim* is a plugin for easily managing sessions in [Vim](http://www.vim.org/ "Vim").
 
 ## Installation
 
@@ -43,12 +43,12 @@ You can then use `:source` to open a session.
 
 The `vim_session_dir` variable defaults to `$HOME/.vim/sessions` on Unix and `$HOME/vimfiles/sessions` on Windows. You can change this by adding the following to your `vimrc` file:
 
-    let g:vim_session_dir = path/to/directory
+    let g:vim_sessions_dir = path/to/directory
 
 You can also change the size of the `:ListSessions` window by using this global variables:
 
-    let g:vim_session_win_min = 1
-    let g:vim_session_win_max = 5
+    let g:vim_sessions_win_min = 1
+    let g:vim_sessions_win_max = 5
 
 ## Limitations
 

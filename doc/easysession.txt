@@ -1,27 +1,27 @@
 ==============================================================================
 
-  INTRODUCTION						*easy-session-intro*
+  INTRODUCTION						*easysession-intro*
 
-  *easy-session.vim* is a for easily managing sessions in Vim.
-
-==============================================================================
-
-  TABLE OF CONTENTS					*easy-session-toc*
-
-  |easy-session-intro|......................................Introduction
-  |easy-session-toc|........................................Table of Contents
-  |easy-session-install|....................................Installation
-  |easy-session-usage|......................................Usage
-  	|easy-session-save|.................................Save session
-	|easy-session-new|..................................New session
-	|easy-session-open|.................................Open session
-	|easy-session-list|.................................List sessions
-  |easy-session-config|.....................................Configuration
-  |easy-session-limit|......................................Limitations
+  *easysession.vim* is a for easily managing sessions in Vim.
 
 ==============================================================================
 
-  INSTALLATION						*easy-session-install*
+  TABLE OF CONTENTS					*easysession-toc*
+
+  |easysession-intro|......................................Introduction
+  |easysession-toc|........................................Table of Contents
+  |easysession-install|....................................Installation
+  |easysession-usage|......................................Usage
+  	|easysession-save|.................................Save session
+	|easysession-new|..................................New session
+	|easysession-open|.................................Open session
+	|easysession-list|.................................List sessions
+  |easysession-config|.....................................Configuration
+  |easysession-limit|......................................Limitations
+
+==============================================================================
+
+  INSTALLATION						*easysession-install*
 
   Pathogen:
   >
@@ -41,9 +41,9 @@
 
 ==============================================================================
 
-  USAGE							*easy-session-usage*
+  USAGE							*easysession-usage*
 
-  Save a session:					*easy-session-save*
+  Save a session:					*easysession-save*
 >
   :SaveSession 
 <
@@ -51,36 +51,36 @@
   a filename. If you want to give your session a different filename, see 
   |easy-session-new|.
 
-  Create a new session:					*easy-session-new*
+  Create a new session:					*easysession-new*
 >
  :NewSession <session>.vim 
 <
-  Open a session:					*easy-session-open*
+  Open a session:					*easysession-open*
 >
   :OpenSession <session>.vim
 <
-  List all sessions:					*easy-session-list*
+  List all sessions:					*easysession-list*
 >
   :ListSessions
 <
 ==============================================================================
 
-  CONFIGURATION						*easy-session-config*
+  CONFIGURATION						*easysession-config*
 
   You can change the sessions directory by adding the following in your
   vimrc file:
 >
-  let g:vim_session_dir = path/to/directory
+  let g:vim_sessions_dir = path/to/directory
 <
   You can also change the size of the sessions list window by using this
   global variables:
 >
-  let g:vim_session_win_min = 1
-  let g:vim_session_win_max = 5
+  let g:vim_sessions_win_min = 1
+  let g:vim_sessions_win_max = 5
 <
 ==============================================================================
 
-  LIMITATIONS						*easy-sessions-limit*
+  LIMITATIONS						*easysessions-limit*
 
   Since the SaveSession function uses the current working directory as it's
   filename you have to make sure that you're in the project's root directory

@@ -1,4 +1,4 @@
-" easy-session.vim
+" easysession.vim
 "
 "   Author: Ellen Gummesson <http://ellengummesson.com/>
 "  Version: 0.5
@@ -13,31 +13,31 @@ endif
 let g:loaded_easy_session = 1
 
 " Set the 'sessions' directory
-if !exists("g:vim_session_dir")
+if !exists("g:vim_sessions_dir")
   if has("unix")
     " Default to ~/.vim/sessions
-    let g:vim_session_dir = "$HOME/.vim/sessions"
+    let g:vim_sessions_dir = "$HOME/.vim/sessions"
   else
     " Default to C:/Users/<USERNAME>/vimfiles/sessions
-    let g:vim_session_dir = "$HOME/vimfiles/sessions"
+    let g:vim_sessions_dir = "$HOME/vimfiles/sessions"
   endif
 endif
 
 " Set minimum window height for the 'Sessions' list
-if !exists("g:vim_session_win_min")
-  let g:vim_session_win_min = 1
+if !exists("g:vim_sessions_win_min")
+  let g:vim_sessions_win_min = 1
 endif
 
 " Set maximum window height for the 'Sessions' list
-if !exists("g:vim_session_win_max")
-  let g:vim_session_win_max = 5
+if !exists("g:vim_sessions_win_max")
+  let g:vim_sessions_win_max = 5
 endif
 
 " Map :SaveSession
-command! -nargs=0 SaveSession call session#Save()
+command! -nargs=0 SaveSession call easysession#Save()
 " Map :OpenSession
-command! -nargs=1 OpenSession call session#Open(<f-args>)
+command! -nargs=1 OpenSession call easysession#Open(<f-args>)
 " Map :OpenSession
-command! -nargs=1 NewSession call session#New(<f-args>)
+command! -nargs=1 NewSession call easysession#New(<f-args>)
 " Map :ListSessions
-command! -nargs=0 ListSessions call session#List()
+command! -nargs=0 ListSessions call easysession#List()
