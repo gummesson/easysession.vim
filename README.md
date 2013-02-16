@@ -7,7 +7,7 @@
 **Pathogen:**
 
     cd ~/.vim/bundle
-    git clone https://github.com/gummesson/easy-session.vim.git
+    git clone https://github.com/gummesson/easysession.vim.git
 
 If you're not using [Pathogen](https://github.com/tpope/vim-pathogen "Pathogen"), place the corresponding files in their respective folders in the `~/.vim/` directory or follow the instructions from the plugin manager you're using.
 
