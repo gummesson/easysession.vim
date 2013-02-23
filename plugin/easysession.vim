@@ -1,6 +1,6 @@
 " easysession.vim
 "
-"   Author: Ellen Gummesson <http://ellengummesson.com/>
+"   Author: Ellen Gummesson
 "  Version: 0.5
 "  License: Vim
 
@@ -10,7 +10,7 @@ endif
 
 let g:loaded_easy_session = 1
 
-" Set the 'Sessions' directory
+" Set the 'sessions' directory
 if !exists("g:vim_sessions_dir")
   if has("unix")
     let g:vim_sessions_dir = "$HOME/.vim/sessions"

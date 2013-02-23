@@ -37,7 +37,7 @@ This will save the session by using the current working directory for it as a fi
 
     :ListSessions
 
-You can then use `:source` to open a session.
+Press `<Esc>` to close the window or `<Enter>` to open a session. You can also use `:source <session>.vim`.
 
 ## Configuration
 

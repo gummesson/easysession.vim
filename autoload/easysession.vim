@@ -1,6 +1,6 @@
 " easysession.vim
 "
-"   Author: Ellen Gummesson <http://ellengummesson.com/>
+"   Author: Ellen Gummesson
 "  Version: 0.5
 "  License: Vim
 
@@ -34,11 +34,13 @@ function! easysession#List()
     silent exec 'lcd '.g:vim_sessions_dir
   call s:vim_sessions_buffer()
   call s:vim_sessions_list()
-    silent exec 'file [EASY SESSION]'
+    silent exec 'file [Easy Session]'
   call s:vim_sessions_misc()
     nnoremap <buffer> <silent> <Esc> :q<cr>
+    nnoremap <buffer> <silent> <Return> :call <SID>vim_sessions_open(getline("."))<cr>
 endfunction
 
+" ~ List functions
 function! s:vim_sessions_window()
   silent exec 'wincmd n | resize '.g:vim_sessions_win_max
   silent exec 'setlocal winminheight='.g:vim_sessions_win_min
@@ -64,4 +66,8 @@ function s:vim_sessions_misc()
     setlocal colorcolumn=0
   endif
   setlocal nocursorline
+endfunction
+
+function! s:vim_sessions_open(filename)
+  silent! exec 'source '.a:filename
 endfunction

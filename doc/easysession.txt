@@ -63,6 +63,8 @@
 >
   :ListSessions
 <
+  Press <Esc> to close the window or <Enter> to open a session.
+
 ==============================================================================
 
   CONFIGURATION						*easysession-config*
